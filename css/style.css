@@ -1,0 +1,30 @@
+
+
+#dash{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 10px;
+    row-gap: 50px;
+    align-self: start;
+ 
+}
+div{
+    box-sizing: content-box;
+    width: 100%;
+    border: solid black 1px;
+    padding: 0px;
+    box-shadow: 2px;
+}
+
+#bestSellers{
+    background-color: black;
+    color: whitesmoke;
+    box-sizing:initial;
+    border: solid black 1px;
+    padding: 2px;
+    margin-left: 30px;
+    box-shadow: 2px;
+}
+.oldest{
+    display: flex;
+}

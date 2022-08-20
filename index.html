@@ -4,23 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
     <title>New York Times Library</title>
 </head>
 <body>
     <header>
         <h1>New York Times </h1>
         <p class="bestsellers">
-            <h2>BEST SELLERS</h2>
+            <h2 id="bestSellers">BEST SELLERS</h2>
         </p>     
+        <section id="entries">
+            <div class="entry"></div>
+            <div class="entry" id="newentry"></div>
+        </section>
     </header>
     <main>
-        <ul class="bookslist">
-            <h3 class="listname"></h3>
-            <p class="oldest"></p>
-            <p class="newest"></p>
-            <p class="updated"></p>
-            <input type="button" value="Read More" class="readmore" href="">
+        <ul class="bookslist" id="bookslist">
+            <input type="button" value="Read More" id="readmore" href="">
         </ul>
+        <div id="dash"></div>
     </main>
+    <script src="./Scripts/index.js"></script>
 </body>
 </html>
