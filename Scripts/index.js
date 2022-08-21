@@ -42,20 +42,47 @@ getList().then(function showBooks(allList){
             async function getBooks(){
                 let booksfetch = await fetch(`https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=rbNTcSQg2dzNAIvk4fOcqzQ0QxTvOoVd`);
                 let booksdata = await booksfetch.json();
+                console.log(booksdata);
 
-                let results = booksdata.results.lists.books;
                 listContainer.remove();
-                  
+                
                 const h2 = document.createElement("h2");
                 h2.innerHTML = cat.display_name;
                 let backbtn = document.createElement("div");
                 backbtn.innerHTML = 
                 `<form>
-                    <input type="submit" value="Go Back"/>
+                <input type="submit" value="Go Back"/>
                 </form>`;
                 document.body.append(h2,backbtn);
                 let newDash = document.createElement("section");
                 newDash.id = "newDash";
+
+                //Pintamos la informacion de cada libro 
+                let results = booksdata.results.lists[index].books;               
+                console.log(results);
+                results.forEach(function (in1,in2){
+                    let bookDiv = document.createElement("div");
+                    bookDiv.classList = "bookdiv"
+                    newDash.appendChild(bookDiv)
+                    let title = document.createElement("h3");
+                    let cover = document.createElement("img");
+                    let weekslist = document.createElement("p");
+                    let description = document.createElement("p");
+                    let bookBtn = document.createElement("div");
+                    
+                    cover.src = in1.book_image;
+                    cover.classList = "covers";
+                    bookDiv.append(title,cover,weekslist,description,bookBtn);
+                    document.body.appendChild(newDash);
+
+                    title.innerText = `#${in1.rank}. ${in1.title}`;
+                    weekslist.innerHTML = `<i>Weeks on list: ${in1.weeks_on_list}</i>`;
+                    description.innerHTML = in1.description;
+                    bookBtn.innerHTML = `
+                    <form action="${in1.amazon_product_url}">
+                        <input type="submit" value="Get it on Amazon!"/>
+                    </form>`;
+                })
 
                
 
