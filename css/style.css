@@ -25,6 +25,174 @@ div{
     margin-left: 30px;
     box-shadow: 2px;
 }
-.oldest{
-    display: flex;
+
+/*Read more Button*/
+.btn {
+    width: 6.5em;
+    height: 2.3em;
+    margin: 0.5em;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 0.625em;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+   }
+
+   button:hover {
+       color: black;
+    }
+    
+    button:after {
+        content: "";
+    background: white;
+    position: absolute;
+    z-index: -1;
+    left: -20%;
+    right: -20%;
+    top: 0;
+    bottom: 0;
+    transform: skewX(-45deg) scale(0, 1);
+    transition: all 0.5s;
+   }
+   
+   button:hover:after {
+    transform: skewX(-45deg) scale(1, 1);
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+
+   .bookslist{
+       display: none;
+    }
+
+    .btn2 {
+     width: 12.5rem;
+     height: 2.3em;
+     margin: 0.5em;
+     background: black;
+     color: white;
+     border: none;
+     border-radius: 0.625em;
+     font-size: 20px;
+     font-weight: bold;
+     cursor: pointer;
+     position: relative;
+     z-index: 1;
+     overflow: hidden;
+    }
+
+    .backbtnForm{
+        box-sizing: content-box;
+        width: 100%;
+        border: solid black 1px;
+        padding: 0px;
+        box-shadow: 2px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .backbutton{
+    width: 12.5rem;
+     height: 2.3em;
+     margin: 0.5em;
+     background: black;
+     color: white;
+     border: none;
+     border-radius: 0.625em;
+     font-size: 20px;
+     font-weight: bold;
+     cursor: pointer;
+     position: relative;
+     z-index: 1;
+     overflow: hidden;
+    }
+   #newDash{
+    gap: 1em;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-content: space-between;
+   }
+
+   .bookdiv{
+    display: grid;
+    box-sizing: border-box;
+    width: auto;
+    border: solid black 1px;
+ 
+   }
+
+   /* //-----------Media queries-------------// */
+@media only screen and (min-width: 350px){
+    main{
+        display: grid;
+        grid-template-columns: max-content
+    }
+    #dash{
+    display: grid;
+    grid-template-rows: repeat(2, 15fr);
+    grid-template-columns: repeat(auto-fill, 24em);
+    column-gap: 10px;
+    row-gap: 1rem;
+    align-self: start;
+    }
+
+    #newDash{
+        gap: 1em;
+        display: grid;
+        grid-template-columns: 36fr 2fr minmax(71px, 1fr);
+        grid-template-rows: repeat(2, 15fr);
+        grid-template-columns: repeat(auto-fill, 24em);
+    }
+
+    .amazonbtn{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    }
+
+    .backButton{
+        box-sizing: content-box;
+        width: 96%;
+        border: solid black 1px;
+        padding: 0px;
+        box-shadow: 2px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .backbtnForm {
+        box-sizing: content-box;
+        box-shadow: 2px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+}
+
+@media only screen and (min-width: 850px){
+    main{
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        column-gap: 10px;
+        row-gap: 50px;
+        align-self: start;
+        /* grid-template-columns: repeat(auto-fill, 36.1em); */
+        grid-template-columns: 52fr 1fr minmax(109px, 1fr);
+     
+    }
 }

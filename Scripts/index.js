@@ -1,5 +1,6 @@
-// https://api.nytimes.com/svc/books/v3/lists/names.json
 
+  
+//Obtener la lista de categorias
 document.getElementById("bookslist");
 async function getList(){
     
@@ -26,7 +27,7 @@ getList().then(function showBooks(allList){
         oldest.className="oldest"
         newest.className="newest"
         updated.className="updated"
-        readmore.className="readmore"
+        readmore.className="btn"
     booksection.append(listname,oldest,newest,updated,readmore)
     listContainer.append(booksection) 
 
@@ -50,9 +51,10 @@ getList().then(function showBooks(allList){
                 h2.innerHTML = cat.display_name;
                 let backbtn = document.createElement("div");
                 backbtn.innerHTML = 
-                `<form>
-                <input type="submit" value="Go Back"/>
+                `<form class="backbtnForm">
+                <input type="submit" value="Go Back"  class="backbutton" />
                 </form>`;
+                backbtn.className= "backButton"
                 document.body.append(h2,backbtn);
                 let newDash = document.createElement("section");
                 newDash.id = "newDash";
@@ -79,8 +81,8 @@ getList().then(function showBooks(allList){
                     weekslist.innerHTML = `<i>Weeks on list: ${in1.weeks_on_list}</i>`;
                     description.innerHTML = in1.description;
                     bookBtn.innerHTML = `
-                    <form action="${in1.amazon_product_url}">
-                        <input type="submit" value="Get it on Amazon!"/>
+                    <form action="${in1.amazon_product_url}" class="amazonbtn">
+                        <input type="submit" value="Get it on Amazon!" class="btn2"/>
                     </form>`;
                 })
 
